@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Preview: keep out of search results until launch -->
+<meta name="robots" content="noindex, nofollow">
+<title>Start Your Case | 10flat Law</title>
+<meta name="description" content="Tell us what happened. Answer a few questions and upload what you have. A licensed attorney reviews every case.">
+<link rel="icon" href="logos/10flat-app-icon.svg" type="image/svg+xml">
+<link rel="icon" href="logos/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="logos/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="10flat Law home">
+      <img src="logos/10flat-app-icon.svg" alt="">
+      <span class="logo">10flat Law</span>
+      <span class="tag">10% flat fee</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#attorneys">Our attorneys</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    
+  </div>
+</header>
+<main id="main" class="intake">
+  <div class="wrap intake-grid">
+    <div class="intake-side">
+      <p class="eyebrow">Start your case</p>
+      <h1 class="display">Tell us what happened.</h1>
+      <p class="lede">Answer a short set of questions at your own pace. Upload what you have: photos, police report, medical bills. If something is missing, we'll ask.</p>
+      <ul class="assure">
+        <li>$0 to start. Our fee is 10% of your recovery.</li>
+        <li>A licensed attorney reviews every case.</li>
+        <li>If you don't recover money, you owe nothing.</li>
+      </ul>
+      <a class="btn-ghost" data-link="whatsapp" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.4-4A8 8 0 1 1 8.6 19z"/></svg> Prefer WhatsApp? Message us</a>
+    </div>
+
+    <div class="form-card">
+      <!-- Draft: this form is not connected to an intake system yet. See the submit handler below. -->
+      <form id="intake" novalidate>
+        <ol class="progress" aria-hidden="true">
+          <li class="now">What happened</li><li>Injuries</li><li>Documents</li><li>Contact</li>
+        </ol>
+        <p class="sr-status" id="stepStatus" aria-live="polite" style="position:absolute;left:-9999px">Step 1 of 4</p>
+
+        <fieldset data-step="1">
+          <legend tabindex="-1">What happened?</legend>
+          <p class="step-hint">A few basics about the accident.</p>
+          <div class="q" role="radiogroup" aria-labelledby="q-type">
+            <span class="qlabel" id="q-type">What kind of accident was it?</span>
+            <div class="chips"><label><input type="radio" name="type" value="Car crash" required><span>Car crash</span></label><label><input type="radio" name="type" value="Truck crash"><span>Truck crash</span></label><label><input type="radio" name="type" value="Motorcycle"><span>Motorcycle</span></label><label><input type="radio" name="type" value="Pedestrian or bike"><span>Pedestrian or bike</span></label><label><input type="radio" name="type" value="Rideshare"><span>Rideshare</span></label><label><input type="radio" name="type" value="Dental or medical treatment"><span>Dental or medical treatment</span></label><label><input type="radio" name="type" value="Injury at work"><span>Injury at work</span></label><label><input type="radio" name="type" value="Slip or trip and fall"><span>Slip or trip and fall</span></label><label><input type="radio" name="type" value="Dog bite"><span>Dog bite</span></label><label><input type="radio" name="type" value="Something else"><span>Something else</span></label></div>
+          </div>
+          <div class="row2">
+            <div class="q"><label for="date">When did it happen?</label><input type="date" id="date" name="date" required></div>
+            <div class="q"><label for="where">Where did it happen? <small>City and state</small></label><input type="text" id="where" name="where" autocomplete="off" required></div>
+          </div>
+          <div class="q">
+            <label for="story">What happened? <small>In your own words. A few sentences is fine.</small></label>
+            <textarea id="story" name="story" required></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset data-step="2" hidden>
+          <legend tabindex="-1">Your injuries</legend>
+          <p class="step-hint">This helps the attorney understand your case. "Not sure" is a fine answer.</p>
+          <div class="q" role="radiogroup" aria-labelledby="q-treat"><span class="qlabel" id="q-treat">Have you had medical treatment?</span>
+            <div class="chips"><label><input type="radio" name="treatment" value="Emergency room or hospital"><span>Emergency room or hospital</span></label><label><input type="radio" name="treatment" value="Doctor or urgent care"><span>Doctor or urgent care</span></label><label><input type="radio" name="treatment" value="Not yet"><span>Not yet</span></label></div></div>
+          <div class="q" role="radiogroup" aria-labelledby="q-still"><span class="qlabel" id="q-still">Are you still being treated?</span>
+            <div class="chips"><label><input type="radio" name="still_treating" value="Yes"><span>Yes</span></label><label><input type="radio" name="still_treating" value="No"><span>No</span></label><label><input type="radio" name="still_treating" value="Not sure"><span>Not sure</span></label></div></div>
+          <div class="q" role="radiogroup" aria-labelledby="q-police"><span class="qlabel" id="q-police">Was a police report made?</span>
+            <div class="chips"><label><input type="radio" name="police_report" value="Yes"><span>Yes</span></label><label><input type="radio" name="police_report" value="No"><span>No</span></label><label><input type="radio" name="police_report" value="Not sure"><span>Not sure</span></label></div></div>
+          <div class="q" role="radiogroup" aria-labelledby="q-work"><span class="qlabel" id="q-work">Did you miss work because of your injuries?</span>
+            <div class="chips"><label><input type="radio" name="missed_work" value="Yes"><span>Yes</span></label><label><input type="radio" name="missed_work" value="No"><span>No</span></label></div></div>
+          <div class="q" role="radiogroup" aria-labelledby="q-lawyer"><span class="qlabel" id="q-lawyer">Do you already have a lawyer for this accident?</span>
+            <div class="chips"><label><input type="radio" name="has_lawyer" value="No"><span>No</span></label><label><input type="radio" name="has_lawyer" value="Yes"><span>Yes</span></label></div></div>
+        </fieldset>
+
+        <fieldset data-step="3" hidden>
+          <legend tabindex="-1">Upload what you have</legend>
+          <p class="step-hint">All optional. Don't have these yet? Skip this step. You can send more later on WhatsApp.</p>
+          <div class="q">
+  <label class="drop" for="photos">
+    <input type="file" id="photos" name="photos" accept="image/*" multiple>
+    <b>Photos</b><small>The scene, vehicles, your injuries</small>
+  </label>
+  <ul class="files" id="photos-list" aria-live="polite"></ul>
+</div>
+          <div class="q">
+  <label class="drop" for="police">
+    <input type="file" id="police" name="police" accept=".pdf,image/*" multiple>
+    <b>Police report</b><small>PDF or photo</small>
+  </label>
+  <ul class="files" id="police-list" aria-live="polite"></ul>
+</div>
+          <div class="q">
+  <label class="drop" for="medical">
+    <input type="file" id="medical" name="medical" accept=".pdf,image/*" multiple>
+    <b>Medical bills or records</b><small>PDF or photos</small>
+  </label>
+  <ul class="files" id="medical-list" aria-live="polite"></ul>
+</div>
+          <div class="q">
+  <label class="drop" for="insurance">
+    <input type="file" id="insurance" name="insurance" accept=".pdf,image/*" multiple>
+    <b>Insurance information</b><small>Yours or the other driver's</small>
+  </label>
+  <ul class="files" id="insurance-list" aria-live="polite"></ul>
+</div>
+        </fieldset>
+
+        <fieldset data-step="4" hidden>
+          <legend tabindex="-1">How can we reach you?</legend>
+          <p class="step-hint">A licensed attorney will review what you send.</p>
+          <div class="q"><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+          <div class="row2">
+            <div class="q"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel" required></div>
+            <div class="q"><label for="email">Email <small>Optional</small></label><input type="email" id="email" name="email" autocomplete="email"></div>
+          </div>
+          <div class="q" role="radiogroup" aria-labelledby="q-contact"><span class="qlabel" id="q-contact">Best way to reach you</span>
+            <div class="chips"><label><input type="radio" name="contact_by" value="WhatsApp"><span>WhatsApp</span></label><label><input type="radio" name="contact_by" value="Text"><span>Text</span></label><label><input type="radio" name="contact_by" value="Phone call"><span>Phone call</span></label><label><input type="radio" name="contact_by" value="Email"><span>Email</span></label></div></div>
+          <div class="q"><label for="lang">Preferred language</label>
+            <select id="lang" name="language"><option>English</option><option>Español</option><option>Other</option></select></div>
+          <label class="check"><input type="checkbox" id="ack" name="ack" required>
+            <span>I understand that sending this form doesn't make 10flat Law my lawyer. A licensed attorney will review my case before the firm agrees to represent me.</span></label>
+          <label class="check"><input type="checkbox" id="sms" name="sms_consent">
+            <span>10flat Law may contact me by text message and WhatsApp about my case. Message and data rates may apply. I can reply STOP at any time. <small>(Optional)</small></span></label>
+          <p class="fine">We keep what you send private and use it to review your case. Read our <a href="privacy.html">Privacy policy</a> and <a href="terms.html">Terms</a>.</p>
+        </fieldset>
+
+        <div class="form-nav">
+          <button type="button" class="btn-ghost" id="back" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg> Back</button>
+          <span class="spacer"></span>
+          <button type="submit" class="btn" id="next"><span class="lbl" id="nextLbl">Next</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button>
+        </div>
+      </form>
+
+      <div class="done-card" id="done" hidden tabindex="-1">
+        <p class="draft-note"><strong>Draft:</strong> this form isn't connected to an intake system yet, so nothing was sent.</p>
+        <h2 id="doneTitle">Thanks. We have what we need to start.</h2>
+        <p class="lede">Here's what happens next:</p>
+        <ol>
+          <li>A licensed attorney reviews what you sent.</li>
+          <li>We contact you <span id="doneBy">the way you asked</span> <span class="ph">[within response time]</span> with any questions.</li>
+          <li>If we take your case, you get the fee agreement to read and sign before we begin work.</li>
+        </ol>
+        <a class="btn" href="index.html"><span class="lbl">Back to home</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <p class="wordmark">10flat Law</p>
+      <div class="ftr-info">
+        <p>10flat Law · [Street address, City, State ZIP] · Call or text [Phone]</p>
+        <p>Attorney responsible for this website: [ATTORNEY NAME, BAR NUMBER], licensed in [STATE].</p>
+        <p>Attorney advertising. Cases are accepted after review by a licensed attorney. The fee is 10% of any recovery (25% for Premium) under a written fee agreement. Case costs are advanced by the firm and repaid from the client's recovery only if there is a recovery. Calculator results are estimates. Prior results do not guarantee a similar outcome.</p>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="fee-agreement.html">Fee agreement sample</a>
+      <span>© 2026 10flat Law. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  // Fill in before launch. Leave empty to keep the button inert.
+  var LINKS = { whatsapp: '' };   // e.g. https://wa.me/[number]
+  document.querySelectorAll('[data-link]').forEach(function (a) {
+    var url = LINKS[a.getAttribute('data-link')];
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+  });
+
+  var form = document.getElementById('intake');
+  var steps = Array.prototype.slice.call(form.querySelectorAll('fieldset'));
+  var bars = form.querySelectorAll('.progress li');
+  var back = document.getElementById('back');
+  var nextLbl = document.getElementById('nextLbl');
+  var status = document.getElementById('stepStatus');
+  var cur = 0;
+
+  function show(i) {
+    cur = i;
+    steps.forEach(function (fs, k) { fs.hidden = k !== i; });
+    bars.forEach(function (li, k) { li.className = k < i ? 'done' : (k === i ? 'now' : ''); });
+    back.hidden = i === 0;
+    nextLbl.textContent = i === steps.length - 1 ? 'Send to an attorney' : (i === 2 ? 'Continue' : 'Next');
+    status.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+    var lg = steps[i].querySelector('legend');
+    lg.focus({ preventScroll: true });
+    var top = form.getBoundingClientRect().top + window.scrollY - 100;
+    if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+
+  function clearErrors(fs) {
+    fs.querySelectorAll('.q.invalid').forEach(function (q) { q.classList.remove('invalid'); });
+    fs.querySelectorAll('.err').forEach(function (e) { e.remove(); });
+  }
+
+  function validate(fs) {
+    clearErrors(fs);
+    var firstBad = null;
+    fs.querySelectorAll('[required]').forEach(function (el) {
+      var ok = el.type === 'radio'
+        ? !!fs.querySelector('input[name="' + el.name + '"]:checked')
+        : el.type === 'checkbox' ? el.checked : el.value.trim() !== '';
+      if (ok) return;
+      var q = el.closest('.q') || el.closest('.check');
+      if (q.classList.contains('invalid')) return;
+      q.classList.add('invalid');
+      var msg = document.createElement('span');
+      msg.className = 'err';
+      msg.textContent = el.type === 'radio' ? 'Choose one.' : el.type === 'checkbox' ? 'Please check this box to continue.' : 'Please fill this in.';
+      q.appendChild(msg);
+      if (!firstBad) firstBad = el;
+    });
+    if (firstBad) firstBad.focus();
+    return !firstBad;
+  }
+
+  form.addEventListener('input', function (e) {
+    var q = e.target.closest('.invalid');
+    if (q) { q.classList.remove('invalid'); var m = q.querySelector('.err'); if (m) m.remove(); }
+  });
+
+  back.addEventListener('click', function () { if (cur > 0) show(cur - 1); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate(steps[cur])) return;
+    if (cur < steps.length - 1) { show(cur + 1); return; }
+    // TODO: send FormData(form), including the uploaded files, to the firm's intake system here.
+    var first = (form.name.value || '').trim().split(/\s+/)[0];
+    var by = form.querySelector('input[name="contact_by"]:checked');
+    if (first) document.getElementById('doneTitle').textContent = 'Thanks, ' + first + '. We have what we need to start.';
+    var how = { 'WhatsApp': 'on WhatsApp', 'Text': 'by text', 'Phone call': 'by phone', 'Email': 'by email' };
+    if (by) document.getElementById('doneBy').textContent = how[by.value] || 'the way you asked';
+    form.hidden = true;
+    var done = document.getElementById('done');
+    done.hidden = false;
+    done.focus();
+  });
+
+  // File pickers: list what was chosen, and accept drag and drop
+  function fmt(n) { return n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; }
+  form.querySelectorAll('input[type=file]').forEach(function (inp) {
+    var list = document.getElementById(inp.id + '-list');
+    var box = inp.closest('.drop');
+    function render() {
+      list.innerHTML = '';
+      Array.prototype.forEach.call(inp.files, function (f) {
+        var li = document.createElement('li');
+        var a = document.createElement('span'); a.textContent = f.name;
+        var b = document.createElement('span'); b.textContent = fmt(f.size);
+        li.appendChild(a); li.appendChild(b); list.appendChild(li);
+      });
+    }
+    inp.addEventListener('change', render);
+    ['dragenter', 'dragover'].forEach(function (t) { box.addEventListener(t, function (e) { e.preventDefault(); box.classList.add('over'); }); });
+    ['dragleave', 'drop'].forEach(function (t) { box.addEventListener(t, function () { box.classList.remove('over'); }); });
+    box.addEventListener('drop', function (e) {
+      e.preventDefault();
+      if (e.dataTransfer && e.dataTransfer.files.length) { inp.files = e.dataTransfer.files; render(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
