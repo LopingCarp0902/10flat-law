@@ -1,4 +1,8 @@
 {
+  "rewrites": [
+    { "source": "/assets/:file", "destination": "/:file" },
+    { "source": "/logos/:file", "destination": "/:file" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
